@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+firstlearnlist = Learnlist.create({
+  name: "test list",
+  description: "great way to learn something",
+  public: true
+  })
