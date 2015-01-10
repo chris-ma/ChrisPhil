@@ -28,7 +28,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+
+#require devise
 gem 'devise'
+
+# require cancancan - management tool for permission level access
+gem 'cancancan', '~> 1.10'
+
+
+#require omniauth - social media login
+gem 'omniauth', '~> 1.2.2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
