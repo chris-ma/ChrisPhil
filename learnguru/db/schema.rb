@@ -37,4 +37,11 @@ ActiveRecord::Schema.define(version: 20150110034519) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "lessons_learnlists", force: :cascade do |t|
+    t.integer  "lesson_id"
+    t.integer  "learnlist_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
 end
