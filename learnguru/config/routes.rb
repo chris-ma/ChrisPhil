@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :learnlists
+  resources :quizzes
 
   resources :youtubes, only: [:index, :new, :create]
 
