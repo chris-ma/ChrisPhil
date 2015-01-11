@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: youtubes
+#
+#  id         :integer          not null, primary key
+#  link       :string
+#  title      :string
+#  author     :string
+#  duration   :string
+#  likes      :integer
+#  dislikes   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  uid        :string
+#
+
 class Youtube < ActiveRecord::Base
 
 YT_LINK_FORMAT = /\A.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/i
