@@ -1,12 +1,25 @@
 # == Route Map
 #
-#           Prefix Verb URI Pattern                 Controller#Action
-# learnlists_index GET  /learnlists/index(.:format) learnlists#index
+#         Prefix Verb   URI Pattern                    Controller#Action
+#     learnlists GET    /learnlists(.:format)          learnlists#index
+#                POST   /learnlists(.:format)          learnlists#create
+#  new_learnlist GET    /learnlists/new(.:format)      learnlists#new
+# edit_learnlist GET    /learnlists/:id/edit(.:format) learnlists#edit
+#      learnlist GET    /learnlists/:id(.:format)      learnlists#show
+#                PATCH  /learnlists/:id(.:format)      learnlists#update
+#                PUT    /learnlists/:id(.:format)      learnlists#update
+#                DELETE /learnlists/:id(.:format)      learnlists#destroy
+#       youtubes GET    /youtubes(.:format)            youtubes#index
+#                POST   /youtubes(.:format)            youtubes#create
+#    new_youtube GET    /youtubes/new(.:format)        youtubes#new
+#           root GET    /                              learnlists#index
 #
 
 Rails.application.routes.draw do
 
   resources :learnlists
+
+  resources :youtubes, only: [:index, :new, :create]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

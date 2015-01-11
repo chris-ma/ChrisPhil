@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20150111090925) do
+=======
+ActiveRecord::Schema.define(version: 20150111071353) do
+
 
   create_table "learnlists", force: :cascade do |t|
     t.string   "name"
@@ -37,6 +41,7 @@ ActiveRecord::Schema.define(version: 20150111090925) do
     t.datetime "updated_at",  null: false
   end
 
+
   create_table "lessons_learnlists", force: :cascade do |t|
     t.integer  "lesson_id"
     t.integer  "learnlist_id"
@@ -48,5 +53,21 @@ ActiveRecord::Schema.define(version: 20150111090925) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+
+  create_table "youtubes", force: :cascade do |t|
+    t.string   "link"
+    t.string   "title"
+    t.string   "author"
+    t.string   "duration"
+    t.integer  "likes"
+    t.integer  "dislikes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "uid"
+  end
+
+  add_index "youtubes", ["uid"], name: "index_youtubes_on_uid"
+
 
 end
