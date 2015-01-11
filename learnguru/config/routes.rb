@@ -9,9 +9,9 @@
 #                PATCH  /learnlists/:id(.:format)      learnlists#update
 #                PUT    /learnlists/:id(.:format)      learnlists#update
 #                DELETE /learnlists/:id(.:format)      learnlists#destroy
-#         videos GET    /videos(.:format)              videos#index
-#                POST   /videos(.:format)              videos#create
-#      new_video GET    /videos/new(.:format)          videos#new
+#       youtubes GET    /youtubes(.:format)            youtubes#index
+#                POST   /youtubes(.:format)            youtubes#create
+#    new_youtube GET    /youtubes/new(.:format)        youtubes#new
 #           root GET    /                              learnlists#index
 #
 
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :learnlists
 
-  resources :videos, only: [:index, :new, :create]
+  resources :youtubes, only: [:index, :new, :create]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
