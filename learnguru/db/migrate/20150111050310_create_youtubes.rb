@@ -1,6 +1,6 @@
-class CreateYouTubes < ActiveRecord::Migration
+class CreateYoutubes < ActiveRecord::Migration
   def change
-    create_table :you_tubes do |t|
+    create_table :youtubes do |t|
       t.string :link
       t.string :title
       t.string :author
