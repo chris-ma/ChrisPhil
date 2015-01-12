@@ -1,0 +1,2 @@
+module EmbedcardHelper
+end
