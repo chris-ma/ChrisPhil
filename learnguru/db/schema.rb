@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150112054054) do
+ActiveRecord::Schema.define(version: 20150112031620) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
@@ -32,9 +32,10 @@ ActiveRecord::Schema.define(version: 20150112054054) do
     t.string   "provider_name"
     t.string   "duration"
     t.string   "thumbnail_url"
+    t.string   "media"
+    t.string   "author_url"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "media"
   end
 
   create_table "learnlists", force: :cascade do |t|

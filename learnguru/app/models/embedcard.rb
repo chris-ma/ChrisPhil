@@ -37,8 +37,9 @@ class Embedcard < ActiveRecord::Base
     self.provider_url = embed['provider_url']
     self.duration = embed['duration']
     self.media = embed['type']
+    self.author_url = embed['author_url']
 
-    if self.media == 'video' then
+    if self.media == 'video' || 'rich' then
       response = HTTParty.get("http://api.embed.ly/1/extract?key=c264ffa553bb4ee7b6af988140467f3a&url="+url)
       self.duration = response['media']['duration']
     end

@@ -9,8 +9,10 @@
       <p><%= image_tag embed.thumbnail_url %></p>
       <p><%= embed.description %></p>
       <p><%== embed.html %></p>
-      <p>Link: <%= embed.provider_url %></p>
+      <p>Source:<%= link_to embed.provider_url %></p>
+      <p>Author:<%= link_to embed.author_url %></p>
       <p>Duration (secs): <%= embed.duration %></p>
+      <p>Type: <%= embed.media %></p>
 
 
     </div>
