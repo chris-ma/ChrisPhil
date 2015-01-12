@@ -1,18 +1,41 @@
 # == Route Map
 #
-#         Prefix Verb   URI Pattern                    Controller#Action
-#     learnlists GET    /learnlists(.:format)          learnlists#index
-#                POST   /learnlists(.:format)          learnlists#create
-#  new_learnlist GET    /learnlists/new(.:format)      learnlists#new
-# edit_learnlist GET    /learnlists/:id/edit(.:format) learnlists#edit
-#      learnlist GET    /learnlists/:id(.:format)      learnlists#show
-#                PATCH  /learnlists/:id(.:format)      learnlists#update
-#                PUT    /learnlists/:id(.:format)      learnlists#update
-#                DELETE /learnlists/:id(.:format)      learnlists#destroy
-#       youtubes GET    /youtubes(.:format)            youtubes#index
-#                POST   /youtubes(.:format)            youtubes#create
-#    new_youtube GET    /youtubes/new(.:format)        youtubes#new
-#           root GET    /                              learnlists#index
+#                   Prefix Verb   URI Pattern                    Controller#Action
+#         new_user_session GET    /users/sign_in(.:format)       devise/sessions#new
+#             user_session POST   /users/sign_in(.:format)       devise/sessions#create
+#     destroy_user_session DELETE /users/sign_out(.:format)      devise/sessions#destroy
+#            user_password POST   /users/password(.:format)      devise/passwords#create
+#        new_user_password GET    /users/password/new(.:format)  devise/passwords#new
+#       edit_user_password GET    /users/password/edit(.:format) devise/passwords#edit
+#                          PATCH  /users/password(.:format)      devise/passwords#update
+#                          PUT    /users/password(.:format)      devise/passwords#update
+# cancel_user_registration GET    /users/cancel(.:format)        devise/registrations#cancel
+#        user_registration POST   /users(.:format)               devise/registrations#create
+#    new_user_registration GET    /users/sign_up(.:format)       devise/registrations#new
+#   edit_user_registration GET    /users/edit(.:format)          devise/registrations#edit
+#                          PATCH  /users(.:format)               devise/registrations#update
+#                          PUT    /users(.:format)               devise/registrations#update
+#                          DELETE /users(.:format)               devise/registrations#destroy
+#               learnlists GET    /learnlists(.:format)          learnlists#index
+#                          POST   /learnlists(.:format)          learnlists#create
+#            new_learnlist GET    /learnlists/new(.:format)      learnlists#new
+#           edit_learnlist GET    /learnlists/:id/edit(.:format) learnlists#edit
+#                learnlist GET    /learnlists/:id(.:format)      learnlists#show
+#                          PATCH  /learnlists/:id(.:format)      learnlists#update
+#                          PUT    /learnlists/:id(.:format)      learnlists#update
+#                          DELETE /learnlists/:id(.:format)      learnlists#destroy
+#                  quizzes GET    /quizzes(.:format)             quizzes#index
+#                          POST   /quizzes(.:format)             quizzes#create
+#                 new_quiz GET    /quizzes/new(.:format)         quizzes#new
+#                edit_quiz GET    /quizzes/:id/edit(.:format)    quizzes#edit
+#                     quiz GET    /quizzes/:id(.:format)         quizzes#show
+#                          PATCH  /quizzes/:id(.:format)         quizzes#update
+#                          PUT    /quizzes/:id(.:format)         quizzes#update
+#                          DELETE /quizzes/:id(.:format)         quizzes#destroy
+#                 youtubes GET    /youtubes(.:format)            youtubes#index
+#                          POST   /youtubes(.:format)            youtubes#create
+#              new_youtube GET    /youtubes/new(.:format)        youtubes#new
+#                     root GET    /                              learnlists#index
 #
 
 Rails.application.routes.draw do
