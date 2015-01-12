@@ -1,4 +1,9 @@
-<%= @quiz.name %>
+
+<p>
+  <strong>Name:</strong>
+  <%= h @quiz.name %>
+</p>
+
 <br>
  <%= link_to "Edit", edit_quiz_path(@quiz) %> |
   <%= link_to "Delete", @quiz, :confirm => 'Are you sure?', :method => :delete %> |

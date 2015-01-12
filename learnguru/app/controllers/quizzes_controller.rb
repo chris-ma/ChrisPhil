@@ -7,7 +7,6 @@ class QuizzesController < ApplicationController
 
   def new
     @quiz = Quiz.new
-     3.times { @quiz.questions.build }
 
   end
 
