@@ -49,6 +49,16 @@
 Rails.application.routes.draw do
 
 
+  get 'embedcard/index'
+
+  get 'embedcard/new'
+
+  get 'embedcard/create'
+
+  get 'embedcard/show'
+
+  get 'embedcard/destroy'
+
   devise_for :users
   resources :learnlists
   resources :quizzes
