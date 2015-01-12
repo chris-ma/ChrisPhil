@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 #require devise
 gem 'devise'
+gem 'pry-rails'
 
 # require cancancan - management tool for permission level access
 gem 'cancancan', '~> 1.10'
