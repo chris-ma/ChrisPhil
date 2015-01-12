@@ -2,10 +2,13 @@ class QuizzesController < ApplicationController
 
   def index
     @quiz = Quiz.all   
+
   end
 
   def new
     @quiz = Quiz.new
+     3.times { @quiz.questions.build }
+
   end
 
   def create
@@ -19,7 +22,17 @@ class QuizzesController < ApplicationController
 
   def show
     @quiz = Quiz.find params[:id]
-    
+  end
+
+  def edit
+    @quiz = Quiz.find params[:id]
+
+  end
+
+  def destroy
+    @quiz = Quiz.find(params[:id])
+    @quiz.destroy
+    redirect_to quizzes_url, notice: "Quiz deleted"
   end
 
   private

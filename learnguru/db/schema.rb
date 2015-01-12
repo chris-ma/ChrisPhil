@@ -18,8 +18,7 @@ ActiveRecord::Schema.define(version: 20150112031620) do
     t.string   "content"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-
-ActiveRecord::Schema.define(version: 20150112005912) do
+  end
 
   create_table "embedcards", force: :cascade do |t|
     t.string   "provider_url"
