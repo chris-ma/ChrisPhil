@@ -2,4 +2,18 @@
 <%= f.error_messages %>
 <p>
 <%= f.label :name %><br>
-<%=  %>
+<%= f.text_field :name %>
+</p>
+
+<% f.fields_for :questions do |builder| %>
+<p> 
+<%= builder.label :content, "questions"  %><br>
+<%= builder.text_area :content, :rows=>3 %>
+
+</p>
+
+<% end %>
+<p>
+<%= f.submit "submit" %>
+</p>
+<% end %>
