@@ -35,10 +35,19 @@
 #                 youtubes GET    /youtubes(.:format)            youtubes#index
 #                          POST   /youtubes(.:format)            youtubes#create
 #              new_youtube GET    /youtubes/new(.:format)        youtubes#new
+#                  lessons GET    /lessons(.:format)             lessons#index
+#                          POST   /lessons(.:format)             lessons#create
+#               new_lesson GET    /lessons/new(.:format)         lessons#new
+#              edit_lesson GET    /lessons/:id/edit(.:format)    lessons#edit
+#                   lesson GET    /lessons/:id(.:format)         lessons#show
+#                          PATCH  /lessons/:id(.:format)         lessons#update
+#                          PUT    /lessons/:id(.:format)         lessons#update
+#                          DELETE /lessons/:id(.:format)         lessons#destroy
 #                     root GET    /                              learnlists#index
 #
 
 Rails.application.routes.draw do
+
 
   devise_for :users
   resources :learnlists
@@ -46,6 +55,7 @@ Rails.application.routes.draw do
 
   resources :youtubes, only: [:index, :new, :create]
 
+  resources :lessons
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
