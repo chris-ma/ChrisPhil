@@ -12,6 +12,9 @@
 #
 
 class Lesson < ActiveRecord::Base
+  has_many :youtubes
+  has_many :embedcards
+
   has_many :lesson_learnlists
   has_many :learnlists, through: :lesson_learnlists
 

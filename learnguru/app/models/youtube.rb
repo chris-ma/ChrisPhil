@@ -20,7 +20,7 @@ YT_LINK_FORMAT = /\A.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*)
  
 validates :link, presence: true, format: YT_LINK_FORMAT 
 
-
+belongs_to :lesson
 
   before_create -> do
     uid = link.match(YT_LINK_FORMAT)
