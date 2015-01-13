@@ -17,6 +17,7 @@
 //= require cocoon
 //= require_tree .
 
+
 $(function () {
 
   var learnboxtemplate = Handlebars.compile($("#entry-template").html());
@@ -47,6 +48,15 @@ $(function () {
 });
 
 
+
+
+//bigslide menu
+
+$(document).ready(function() {
+    //initialize
+    var bigSlide = $('.menu-link').bigSlide();
+
+});
 
 
 
