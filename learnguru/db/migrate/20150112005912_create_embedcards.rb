@@ -14,6 +14,7 @@ class CreateEmbedcards < ActiveRecord::Migration
       t.string :thumbnail_url
       t.string :media
       t.string :author_url
+      t.integer :lesson_id
 
       t.timestamps null: false
     end

@@ -57,7 +57,7 @@ Rails.application.routes.draw do
   
   resources :youtubes, only: [:index, :new, :create]
 
-  resources :lessons
+  resources :lessons 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

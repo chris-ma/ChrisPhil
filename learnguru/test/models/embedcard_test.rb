@@ -14,8 +14,11 @@
 #  provider_name   :string
 #  duration        :string
 #  thumbnail_url   :string
+#  media           :string
+#  author_url      :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  lesson_id       :integer
 #
 
 require 'test_helper'

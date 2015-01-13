@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 #require devise
 gem 'devise'
 gem 'pry-rails'
+gem 'cocoon'
+gem 'formtastic', '~> 3.0'
+gem "slim-rails"
+gem 'simple_form'
 
 # require cancancan - management tool for permission level access
 gem 'cancancan', '~> 1.10'

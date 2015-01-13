@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+//= require cocoon
 
 function add_fields(link, association, content) {
   var new_id = new Date().getTime();

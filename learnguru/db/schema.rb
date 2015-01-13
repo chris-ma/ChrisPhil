@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20150112031620) do
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id"
     t.string   "content"
+    t.boolean  "correct"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(version: 20150112031620) do
     t.string   "thumbnail_url"
     t.string   "media"
     t.string   "author_url"
+    t.integer  "lesson_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
@@ -63,16 +65,17 @@ ActiveRecord::Schema.define(version: 20150112031620) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.integer  "survey_id"
+    t.integer  "quiz_id"
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "quizzes", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "lesson_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "name"
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,11 +103,9 @@ ActiveRecord::Schema.define(version: 20150112031620) do
     t.string   "duration"
     t.integer  "likes"
     t.integer  "dislikes"
+    t.string   "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "uid"
   end
-
-  add_index "youtubes", ["uid"], name: "index_youtubes_on_uid"
 
 end

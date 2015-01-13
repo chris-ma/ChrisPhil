@@ -12,11 +12,13 @@
 #
 
 class Lesson < ActiveRecord::Base
-  has_many :youtubes
-  has_many :embedcards
+
+  has_many :embedcards, dependent: :destroy
+  accepts_nested_attributes_for :embedcards, allow_destroy: true
 
   has_many :lesson_learnlists
   has_many :learnlists, through: :lesson_learnlists
 
-  has_many :quizzes
+  has_many :quizzes, dependent: :destroy
+  accepts_nested_attributes_for :quizzes, allow_destroy: true
 end

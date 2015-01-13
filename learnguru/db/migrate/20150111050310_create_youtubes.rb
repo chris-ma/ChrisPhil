@@ -7,6 +7,7 @@ class CreateYoutubes < ActiveRecord::Migration
       t.string :duration
       t.integer :likes
       t.integer :dislikes
+      t.string :uid
 
       t.timestamps null: false
     end

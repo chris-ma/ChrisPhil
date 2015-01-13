@@ -14,8 +14,11 @@
 #  provider_name   :string
 #  duration        :string
 #  thumbnail_url   :string
+#  media           :string
+#  author_url      :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  lesson_id       :integer
 #
 
 class Embedcard < ActiveRecord::Base
@@ -25,7 +28,8 @@ class Embedcard < ActiveRecord::Base
 
   before_create -> do
     url = provider_url
-    embeddetails = Tinyembedly::Oembed.new(key: 'c264ffa553bb4ee7b6af988140467f3a', url: url)
+    key = ENV['EMBEDLY_API_KEY']
+    embeddetails = Tinyembedly::Oembed.new(key: key, url: url)
     embed = embeddetails.to_hash
 
     self.description = embed['description']
@@ -40,7 +44,7 @@ class Embedcard < ActiveRecord::Base
     self.author_url = embed['author_url']
 
     if self.media == 'video' || 'rich' then
-      response = HTTParty.get("http://api.embed.ly/1/extract?key=c264ffa553bb4ee7b6af988140467f3a&url="+url)
+      response = HTTParty.get('http://api.embed.ly/1/extract?key='+key+'&url='+url)
       self.duration = response['media']['duration']
     end
   end
