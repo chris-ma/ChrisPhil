@@ -4,7 +4,6 @@
   <title>Learnguru</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag :defaults, :cache => true %>
   <%= javascript_include_tag :cocoon %>
   <%= csrf_meta_tags %>
   <script src="https://www.google.com/jsapi"></script>
@@ -14,21 +13,17 @@
 
 <body>
 
-  
-
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
- 
- <div class="container">
-  <% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>">
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-    <%= value %>
+  <div class="row">
+    <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= value %>
+    </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
-
 <%= yield %>
 
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
 </body>
 </html>

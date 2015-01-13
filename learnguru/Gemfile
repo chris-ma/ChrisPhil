@@ -3,9 +3,7 @@ source 'https://rubygems.org'
 gem 'devise'
 gem 'pry-rails'
 gem 'cocoon'
-gem 'formtastic', '~> 3.0'
-gem "slim-rails"
-gem 'simple_form'
+gem 'handlebars-rails', '~> 0.4.2'
 
 # require cancancan - management tool for permission level access
 gem 'cancancan', '~> 1.10'
