@@ -13,6 +13,8 @@ gem 'cancancan', '~> 1.10'
 #require omniauth - social media login
 gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-linkedin'
+gem 'omniauth-twitter'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
