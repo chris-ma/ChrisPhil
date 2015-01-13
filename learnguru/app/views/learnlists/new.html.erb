@@ -2,30 +2,34 @@
 <script id="entry-template" type="text/x-handlebars-template">
   <div id="learnlist-title">
     <h2>{{name}}</h2>
-    <h3>Created by: User</h3>
   </div>
-  <div id= "learnlist-container">
-  This is where the lessons go
+  <div class= "learnlist-container">
+    <div class= "lesson-container">
+      <input type="text" class="form-control input-lg"  id="provider"  placeholder="Enter the link to the lesson content">
+      <a href="#" class="btn btn-default btn-md pull-right" id="new-lesson-button">Find</a>
+    </div>
   </div>
   <div id= "lesson-add">
-  Button to add a lesson
+    <a href="#" class="btn btn-default btn-md pull-right" id="new-learnlist-button">Add another lesson</a>
   </div>
+
 </script>
 
 
 
 
 <div class="container">
+<div id="new-learnlist-input">
   <h2>Share your learning recommendations with the world, or just your friends!</h2>
 
   <form class="form-inline" role="form">
-   <div class="form-group col-lg-8">
+
     <input type="text" class="form-control input-lg"  id="new-learnlist-name"  placeholder="Enter the name of new LearnList&#153;">
     <a href="#" class="btn btn-primary btn-lg" id="new-learnlist-button">Let's get started</a>
-  </div>
-</form>
 
+</form>
+</div>
 </div>
 <div class="container">
-<div id = "learnlist-content"></div>
+  <div id = "learnlist-content"></div>
 </div>

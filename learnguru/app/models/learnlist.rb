@@ -6,6 +6,7 @@
 #  name        :string
 #  description :text
 #  public      :boolean
+#  status      :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

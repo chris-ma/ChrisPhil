@@ -29,13 +29,15 @@ $(function () {
       var newlearnlisttitle = {name: newlearnlistname, body: "This is my first lesson"};
       $("#learnlist-content").html(learnboxtemplate(newlearnlisttitle));
       event.preventDefault();
-              $.ajax({
+      $("#new-learnlist-input").hide();
+      $.ajax({
         method: "POST",
         url: "/learnlists",
         dataType: "json",
         data: {
           learnlist: {
-            name: newlearnlistname }
+            name: newlearnlistname,
+            status: 'draft' }
           },
           success: function (data) {
             console.log("response"+data.id);
@@ -43,7 +45,27 @@ $(function () {
           }
         })
 
-  });
+
+  $("#new-lesson-button").on("click", function () { 
+    var lessonurl = $("#provider").val();
+    console.log("new lesson");
+        $.ajax({
+        method: "POST",
+        url: "/lessons",
+        dataType: "json",
+        data: {
+          lesson: {
+            provider_url: lessonurl}
+          },
+          success: function (data) {
+            console.log("response"+data.id);
+            console.log("response"+data.title);
+            // $("#learnlist-content").data("id",data.id).attr("id","ll"+data.id);
+          }
+        })
+      });
+    });
+
 });
 
 
