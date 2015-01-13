@@ -13,8 +13,41 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require bootstrap
 //= require cocoon
+//= require_tree .
+
+$(function () {
+
+  var learnboxtemplate = Handlebars.compile($("#entry-template").html());
+
+  $("#new-learnlist-button").click(function () {
+
+    // create function to build lesson box
+    // create function to create learnlist
+      var newlearnlistname = $("#new-learnlist-name").val();
+      var newlearnlisttitle = {name: newlearnlistname, body: "This is my first lesson"};
+      $("#learnlist-content").html(learnboxtemplate(newlearnlisttitle));
+      event.preventDefault();
+              $.ajax({
+        method: "POST",
+        url: "/learnlists",
+        dataType: "json",
+        data: {
+          learnlist: {
+            name: newlearnlistname }
+          },
+          success: function (data) {
+            console.log("response"+data.id);
+            $("#learnlist-content").data("id",data.id).attr("id","ll"+data.id);
+          }
+        })
+
+  });
+});
+
+
+
+
 
 

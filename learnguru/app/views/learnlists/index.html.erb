@@ -1,5 +1,6 @@
 <% @learnlists.each do |learnlist| %>
-<h1><%= learnlist.name %></h1>
-<h2><%= learnlist.description %></h2>
-<h2><%= learnlist.created_at %></h2>
+<h2><%= learnlist.name %></h2>
+<h3><%= learnlist.id %></h3>
+<h3><%= learnlist.description %></h3>
+<h3><%= learnlist.created_at %></h3>
 <% end %>

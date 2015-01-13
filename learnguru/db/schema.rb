@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150112031620) do
     t.string   "name"
     t.text     "description"
     t.boolean  "public"
+    t.string   "status"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
