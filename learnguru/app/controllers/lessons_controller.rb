@@ -35,7 +35,7 @@ class LessonsController < ApplicationController
     params.require(:lesson).permit(
         :name,
         :description,
-        :provder_url
+        :provider_url,
         {
           quizzes_attributes: [:id, :name, :lesson_id, :_destroy],
           questions_attributes: [:id, :content, :quiz_id, :_destroy]

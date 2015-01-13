@@ -21,25 +21,6 @@ ActiveRecord::Schema.define(version: 20150112031620) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "embedcards", force: :cascade do |t|
-    t.string   "provider_url"
-    t.string   "description"
-    t.string   "title"
-    t.string   "author_name"
-    t.integer  "height"
-    t.integer  "width"
-    t.string   "html"
-    t.integer  "thumbnail_width"
-    t.string   "provider_name"
-    t.string   "duration"
-    t.string   "thumbnail_url"
-    t.string   "media"
-    t.string   "author_url"
-    t.integer  "lesson_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
   create_table "learnlists", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -56,12 +37,22 @@ ActiveRecord::Schema.define(version: 20150112031620) do
   end
 
   create_table "lessons", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
+    t.string   "provider_url"
+    t.string   "description"
+    t.string   "title"
+    t.string   "author_name"
+    t.integer  "height"
+    t.integer  "width"
+    t.string   "html"
+    t.integer  "thumbnail_width"
+    t.string   "provider_name"
+    t.string   "duration"
+    t.string   "thumbnail_url"
+    t.string   "media"
+    t.string   "author_url"
     t.boolean  "public"
-    t.integer  "length"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "questions", force: :cascade do |t|
@@ -95,17 +86,5 @@ ActiveRecord::Schema.define(version: 20150112031620) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-
-  create_table "youtubes", force: :cascade do |t|
-    t.string   "link"
-    t.string   "title"
-    t.string   "author"
-    t.string   "duration"
-    t.integer  "likes"
-    t.integer  "dislikes"
-    t.string   "uid"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
 end
