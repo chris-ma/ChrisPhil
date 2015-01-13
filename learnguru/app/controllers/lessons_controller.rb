@@ -7,7 +7,6 @@ class LessonsController < ApplicationController
 
   def new
     @lesson = Lesson.new
-    @lesson.embedcards.build
     @lesson.quizzes.build
   end
 
@@ -36,8 +35,8 @@ class LessonsController < ApplicationController
     params.require(:lesson).permit(
         :name,
         :description,
+        :provder_url
         {
-          embedcards_attributes: [:id, :provider_url, :lesson_id, :_destroy],
           quizzes_attributes: [:id, :name, :lesson_id, :_destroy],
           questions_attributes: [:id, :content, :quiz_id, :_destroy]
         }

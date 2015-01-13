@@ -19,10 +19,6 @@
   <%= f.label :description %><br>
   <%= f.text_field :description %>
 </div>
-<div class="field">
-  <%= f.fields_for :embedcards do |embed| %>
-  <%= render 'embedcard_fields', :f => embed %>
-  <% end %>
 </div>
 <div class="field">
   <%= f.fields_for :quizzes do |quiz| %>
