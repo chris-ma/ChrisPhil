@@ -14,9 +14,9 @@ class LessonsController < ApplicationController
     @lesson = Lesson.new lesson_params
     if @lesson.save
       flash[:success] = 'Page captured and lesson created'
-      redirect_to lessons_path
+      redirect_to @lesson
     else
-      render 'new'
+      flash[:error] = 'Search failed, please try again'
     end
   end
 
@@ -27,6 +27,10 @@ class LessonsController < ApplicationController
   end
 
   def show
+        respond_to do |format|
+      format.html
+      format.json { render json: @lesson }
+    end
   end
 
   private 
