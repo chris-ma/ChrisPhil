@@ -42,5 +42,14 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.find params[:id]    
   end
 
+  def question_params
+    params.require(:quiz).permit(
+        :name,
+        :lesson_id,
+        {
+          questions_attributes: [:id, :content, :quiz_id, :_destroy]
+        }
+    )
+  end
 
 end

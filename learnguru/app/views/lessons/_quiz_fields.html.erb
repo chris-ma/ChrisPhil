@@ -1,7 +1,13 @@
 <div id="nested-fields">
   <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
-
- </div> 
+  <% f.object.build_questions %>
+  <%= f.fields_for :questions do |question| %>
+  <%= render 'question_fields', :f => question %>
+  <% end %>
+  <div class='links'>
+  <%= link_to_add_association 'add question', f, :questions %>
+  </div>
+</div> 

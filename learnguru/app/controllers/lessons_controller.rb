@@ -38,7 +38,8 @@ class LessonsController < ApplicationController
         :description,
         {
           embedcards_attributes: [:id, :provider_url, :lesson_id, :_destroy],
-          quizzes_attributes: [:id, :name, :lesson_id, :_destroy]
+          quizzes_attributes: [:id, :name, :lesson_id, :_destroy],
+          questions_attributes: [:id, :content, :quiz_id, :_destroy]
         }
     )
   end
