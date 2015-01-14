@@ -7,12 +7,16 @@
 
     <div class= "lessonContainer" id= "lesson-container-new">
       <div id="mediabox-new" class="mediaContainer">
-        <input type="text" class="form-control input-lg"  id="provider"  placeholder="Enter the link to the lesson content">
-        <a href="#" class="btn btn-default btn-md pull-right" id="find-lesson-button">Find</a>
-      </div>
-      <div id="mediaInfo-last">
+       <div class="input-group">
+        <input type="text" class="form-control input-lg" id="new-provider" placeholder="Enter the link to the lesson content">
+        <span class="input-group-btn">
+          <button class="btn btn-primary btn-lg" type="button" id="find-lesson-button">Add
+          </button>
+        </span>
       </div>
     </div>
+
+    <div id="mediaInfo-last"></div>
   </div>
 </script>
 
@@ -21,25 +25,31 @@
 <script id="lessoncontainer-template" type="text/x-handlebars-template">
   <div class= "lessonContainer" id= "lesson-container-new">
     <div id="mediabox-new" class="mediaContainer">
-      <input type="text" class="form-control input-lg"  id="provider"  placeholder="Enter the link to the lesson content">
-      <a href="#" class="btn btn-default btn-md pull-right" id="find-lesson-button">Find</a>
+     <div class="input-group">
+      <input type="text" class="form-control input-lg" id="new-provider" placeholder="Enter the link to the lesson content">
+      <span class="input-group-btn">
+        <button class="btn btn-primary btn-lg" type="button" id="find-lesson-button">Add
+        </button>
+      </span>
     </div>
-    <div id="mediaInfo-last"></div>
   </div>
+
+  <div id="mediaInfo-last"></div>
+</div>
 </script>
 
 <!-- lesson summary  -->
 
 <script id="lessonsummary-template" type="text/x-handlebars-template"> 
   <div class="row">
-  <div class="summaryThumb"><img src="{{thumbnail_url}}"></div>
-  <div class="summaryInfo">
-  <div class="summaryTitle"><strong>{{title}}</strong></div> 
-  <div class="summaryDescription">{{description}}</div>
-  <div class="summaryLink"><a href="{{provider_url}}" target="_blank">
-   {{provider_name}}</a> </div>
-   </div>
-   <div class="clear"></div>
+    <div class="summaryThumb"><img src="{{thumbnail_url}}"></div>
+    <div class="summaryInfo">
+      <div class="summaryTitle"><strong>{{title}}</strong></div> 
+      <div class="summaryDescription">{{description}}</div>
+      <div class="summaryLink"><a href="{{provider_url}}" target="_blank">
+       {{provider_name}}</a> </div>
+     </div>
+     <div class="clear"></div>
    </div>
  </script>
 
@@ -62,14 +72,14 @@
    <!-- main page original content -->
    <div class="container-fluid">
     <div id="new-learnlist-input">
-      <h2>Share your learning recommendations with the world, or just your friends!</h2>
-
-      <form class="form-inline" role="form">
-
-        <input type="text" class="form-control input-lg"  id="new-learnlist-name"  placeholder="Enter the name of new LearnList&#153;">
-        <a href="#" class="btn btn-primary btn-lg" id="new-learnlist-button">Let's get started</a>
-
-      </form>
+      <h2>Share your curated learning recommendations with the world, or just your friends!</h2>
+      <div class="input-group">
+        <input type="text" class="form-control input-lg" id="new-learnlist-name" placeholder="Enter the name of a new LearnList&#153;">
+        <span class="input-group-btn">
+          <button class="btn btn-primary btn-lg" type="button" id="new-learnlist-button">Curate!
+          </button>
+        </span>
+      </div>
     </div>
     <div id="learnlist-content"></div>
   </div>

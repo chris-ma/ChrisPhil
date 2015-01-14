@@ -60,9 +60,10 @@ $(function () {
   });
 
   $("body").on("click", "#find-lesson-button", function () { 
-    var lessonurl = $("#provider").val();
+    var lessonurl = $("#new-provider").val();
     var learnlistID = $("#learnlist-content").data("id");
     console.log(learnlistID);
+    console.log(lessonurl);
     $.ajax({
       method: "POST",
       url: "/lessons",
@@ -113,6 +114,7 @@ $("body").on("click", "#keep-lesson-button", function () {
 $("body").on("click", "#delete-lesson-button", function () { 
      console.log('delete');
      var lessoncontainertemplate = $("#lessoncontainer-template").html();
+     console.log(lessoncontainertemplate);
      var lessonID =  $("#lesson-container-last").data("id");
  $.ajax({
     method: "POST",
