@@ -19,10 +19,26 @@
 
 * {
   box-sizing: border-box;
+  background-color: #36465D;
+  color: white;
   } 
+
+.nav-pills{
+    border-radius: 0px;
+
+}
 
 .container {
 
+}
+
+.menu-left{
+    
+    height: 100vh;
+}
+
+#separator-space{
+    height: 3vh;
 }
 
 .lesson-box {

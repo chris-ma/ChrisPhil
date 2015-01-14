@@ -18,6 +18,8 @@
 #
 
 class User < ActiveRecord::Base
+
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
@@ -25,13 +27,16 @@ class User < ActiveRecord::Base
 end
 
 
-def self.new_with_session(params, session)
-  if session["devise.user_attributes"]
-    new(session["devise.user_attributes"], without_protection: true) do |user|
-      user.attributes = params
-      user.valid?
-    end
-  else
-    super && provider.blank?
-  end    
-end
+
+# used for quiz
+
+# def self.new_with_session(params, session)
+#   if session["devise.user_attributes"]
+#     new(session["devise.user_attributes"], without_protection: true) do |user|
+#       user.attributes = params
+#       user.valid?
+#     end
+#   else
+#     super && provider.blank?
+#   end    
+# end

@@ -5,6 +5,7 @@ gem 'pry-rails'
 gem 'cocoon'
 gem 'handlebars-rails', '~> 0.4.2'
 
+
 # require cancancan - management tool for permission level access
 gem 'cancancan', '~> 1.10'
 
@@ -12,6 +13,7 @@ gem 'cancancan', '~> 1.10'
 gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-linkedin'
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
