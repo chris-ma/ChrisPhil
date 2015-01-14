@@ -72,16 +72,19 @@
    <!-- main page original content -->
    <div class="container-fluid">
     <div id="new-learnlist-input">
-      <h2>Share your curated learning recommendations with the world, or just your friends!</h2>
-      <div class="input-group">
-        <input type="text" class="form-control input-lg" id="new-learnlist-name" placeholder="Enter the name of a new LearnList&#153;">
-        <span class="input-group-btn">
-          <button class="btn btn-primary btn-lg" type="button" id="new-learnlist-button">Curate!
-          </button>
-        </span>
-      </div>
+    <div class="row text-center">
+      <%=  image_tag "guru.png" %>
     </div>
-    <div id="learnlist-content"></div>
+    <h2>Share your curated learning recommendations with the world!</h2>
+    <div class="input-group">
+      <input type="text" class="form-control input-lg" id="new-learnlist-name" placeholder="Enter the name of a new LearnList&#153;">
+      <span class="input-group-btn">
+        <button class="btn btn-primary btn-lg" type="button" id="new-learnlist-button">Curate!
+        </button>
+      </span>
+    </div>
   </div>
+  <div id="learnlist-content"></div>
+</div>
 
 

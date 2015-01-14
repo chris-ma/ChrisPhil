@@ -15,7 +15,7 @@ gem 'omniauth-linkedin'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
-
+gem 'friendly_id', '~> 5.1.0.beta.1'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
