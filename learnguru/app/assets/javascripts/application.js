@@ -42,12 +42,12 @@ $(function () {
           },
           success: function (data) {
             console.log("response"+data.id);
-            $("#learnlist-content").data("id",data.id).attr("id","ll"+data.id);
+            $("#learnlist-content").data("id",data.id).attr("id","learnlist-content-"+data.id);
           }
         })
 
 
-  $("#new-lesson-button").on("click", function () { 
+  $("#find-lesson-button").on("click", function () { 
     var lessonurl = $("#provider").val();
     console.log("new lesson");
         $.ajax({
@@ -56,18 +56,30 @@ $(function () {
         dataType: "json",
         data: {
           lesson: {
-            provider_url: lessonurl}
+            provider_url: lessonurl,
+            learnlist_id: $("#learnlist-content").data("id")
+                  }
           },
           success: function (data) {
             console.log("response"+data.id);
             console.log("response"+data.title);
-            // $("#learnlist-content").data("id",data.id).attr("id","ll"+data.id);
+            $("#lesson-container-new").data("id",data.id).attr("id","lesson-container-"+data.id);
+            $("#lesson-container-"+data.id).html(data.html);
+            $(".lessonControl").css("display","block");
           }
         })
       });
     });
 
-});
+  $("#add-lesson-button").on("click", function () { 
+
+      });
+   
+
+
+    });
+
+
 
 
 

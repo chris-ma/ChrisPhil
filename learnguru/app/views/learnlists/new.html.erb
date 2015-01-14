@@ -1,35 +1,34 @@
 
+<div class="container">
+  <div id="new-learnlist-input">
+    <h2>Share your learning recommendations with the world, or just your friends!</h2>
+
+    <form class="form-inline" role="form">
+
+      <input type="text" class="form-control input-lg"  id="new-learnlist-name"  placeholder="Enter the name of new LearnList&#153;">
+      <a href="#" class="btn btn-primary btn-lg" id="new-learnlist-button">Let's get started</a>
+
+    </form>
+  </div>
+</div>
+<div class="container">
+
+  <div id = "learnlist-content"></div>
+</div>
+
 <script id="entry-template" type="text/x-handlebars-template">
   <div id="learnlist-title">
     <h2>{{name}}</h2>
   </div>
   <div class= "learnlist-container">
-    <div class= "lesson-container">
+    <div class= "lessonContainer" id= "lesson-container-new">
       <input type="text" class="form-control input-lg"  id="provider"  placeholder="Enter the link to the lesson content">
-      <a href="#" class="btn btn-default btn-md pull-right" id="new-lesson-button">Find</a>
+      <a href="#" class="btn btn-default btn-md pull-right" id="find-lesson-button">Find</a>
     </div>
   </div>
-  <div id= "lesson-add">
-    <a href="#" class="btn btn-default btn-md pull-right" id="new-learnlist-button">Add another lesson</a>
+  <div id= "lesson-control" class= "lessonControl" style="display: none;">
+    <a href="#" class="btn btn-default btn-md pull-right" id="add-lesson-button">Add another lesson</a>
+    <a href="#" class="btn btn-default btn-md pull-right" id="delete-lesson-button">Delete lesson</a>
+
   </div>
-
 </script>
-
-
-
-
-<div class="container">
-<div id="new-learnlist-input">
-  <h2>Share your learning recommendations with the world, or just your friends!</h2>
-
-  <form class="form-inline" role="form">
-
-    <input type="text" class="form-control input-lg"  id="new-learnlist-name"  placeholder="Enter the name of new LearnList&#153;">
-    <a href="#" class="btn btn-primary btn-lg" id="new-learnlist-button">Let's get started</a>
-
-</form>
-</div>
-</div>
-<div class="container">
-  <div id = "learnlist-content"></div>
-</div>

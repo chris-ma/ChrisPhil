@@ -13,7 +13,6 @@ class LessonsController < ApplicationController
   def create
     @lesson = Lesson.new lesson_params
     if @lesson.save
-      flash[:success] = 'Page captured and lesson created'
       redirect_to @lesson
     else
       flash[:error] = 'Search failed, please try again'
