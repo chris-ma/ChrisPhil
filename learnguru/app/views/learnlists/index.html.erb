@@ -7,7 +7,9 @@
 
 <% @learnlists.each do |learnlist| %>
 <h2><%= learnlist.name %></h2>
-<h3><%= learnlist.id %></h3>
+<% learnlist.lessons.each do |lesson|  %>
+<%= lesson.description %>
+<% end %>
 <h3><%= learnlist.description %></h3>
 <h3><%= learnlist.created_at %></h3>
 <% end %>

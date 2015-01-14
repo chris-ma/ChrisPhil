@@ -3,8 +3,8 @@
 
   <% @lessons.each do |lesson| %>
   <div >
-    <h2><%= lesson.name %></h1>
-    <p><%= lesson.description %></p>  
+    <h2>id: <%= lesson.learnlists.first.name %></h1>
+    <p>desc: <%= lesson.description %></p>  
   </div>
     <% lesson.quizzes.each do |quiz| %>
   <%= quiz.name %>

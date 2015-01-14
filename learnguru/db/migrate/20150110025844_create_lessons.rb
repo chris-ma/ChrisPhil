@@ -15,7 +15,7 @@ class CreateLessons < ActiveRecord::Migration
       t.string :thumbnail_url
       t.string :media
       t.string :author_url
-      t.boolean :public
+      t.boolean :public 
       
       t.timestamps null: false
     end

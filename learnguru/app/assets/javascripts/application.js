@@ -27,7 +27,7 @@ $(function () {
     // create function to build lesson box
     // create function to create learnlist
       var newlearnlistname = $("#new-learnlist-name").val();
-      var newlearnlisttitle = {name: newlearnlistname, body: "This is my first lesson"};
+      var newlearnlisttitle = {name: newlearnlistname};
       $("#learnlist-content").html(learnboxtemplate(newlearnlisttitle));
       event.preventDefault();
       $("#new-learnlist-input").hide();
@@ -42,14 +42,16 @@ $(function () {
           },
           success: function (data) {
             console.log("response"+data.id);
-            $("#learnlist-content").data("id",data.id).attr("id","learnlist-content-"+data.id);
+            $("#learnlist-content").data("id",data.id);
           }
         })
 
 
   $("#find-lesson-button").on("click", function () { 
-    var lessonurl = $("#provider").val();
     console.log("new lesson");
+    var lessonurl = $("#provider").val();
+    var learnlistID = $("#learnlist-content").data("id");
+    console.log(learnlistID);
         $.ajax({
         method: "POST",
         url: "/lessons",
@@ -57,7 +59,7 @@ $(function () {
         data: {
           lesson: {
             provider_url: lessonurl,
-            learnlist_id: $("#learnlist-content").data("id")
+            learnlist_ids: [learnlistID]
                   }
           },
           success: function (data) {

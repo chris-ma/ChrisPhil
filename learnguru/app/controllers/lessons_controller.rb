@@ -39,8 +39,8 @@ class LessonsController < ApplicationController
         :name,
         :description,
         :provider_url,
-        :learnlist_id,
         {
+          learnlist_ids: [],
           quizzes_attributes: [:id, :name, :lesson_id, :_destroy],
           questions_attributes: [:id, :content, :quiz_id, :_destroy]
         }
