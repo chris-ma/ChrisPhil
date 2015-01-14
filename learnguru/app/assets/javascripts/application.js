@@ -61,6 +61,7 @@ $(function () {
                   }
           },
           success: function (data) {
+
             console.log("response"+data.id);
             console.log("response"+data.title);
             $("#lesson-container-new").data("id",data.id).attr("id","lesson-container-"+data.id);
@@ -84,13 +85,6 @@ $(function () {
 
 
 
-//bigslide menu
-
-$(document).ready(function() {
-    //initialize
-    var bigSlide = $('.menu-link').bigSlide();
-
-});
 
 
 
