@@ -29,8 +29,10 @@ class User < ActiveRecord::Base
   # attr_accessible :email, :password, :password_confirmation, :remember_me, :username
 
 
-  validates_presence_of :username
-
+  # validates_presence_of :username
+  
+  include Gravtastic
+  gravtastic
 
   def self.from_omniauth(auth)
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -60,8 +62,7 @@ class User < ActiveRecord::Base
     super && provider.blank?
   end
 
-  include Gravtastic
-  gravtastic
+
 
   has_many :learnlists
   has_many :lessons
