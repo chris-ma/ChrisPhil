@@ -1,34 +1,77 @@
-
-<div class="container-fluid">
-  <div id="new-learnlist-input">
-    <h2>Share your learning recommendations with the world, or just your friends!</h2>
-
-    <form class="form-inline" role="form">
-
-      <input type="text" class="form-control input-lg"  id="new-learnlist-name"  placeholder="Enter the name of new LearnList&#153;">
-      <a href="#" class="btn btn-primary btn-lg" id="new-learnlist-button">Let's get started</a>
-
-    </form>
+<script id="learnlisttitle-template" type="text/x-handlebars-template">   
+  <div id="learnlist-title" class="learnlistTitle">
+    <h1>{{name}}</h1>
+    <h3>Created by: Philip Hancock</h3>
   </div>
-</div>
-<div class="container-fluid">
+  <div id = "learnlist-container" class = "learnlistContainer">
 
-  <div id = "learnlist-content"></div>
-</div>
-
-<script id="entry-template" type="text/x-handlebars-template">
-  <div id="learnlist-title">
-    <h2>{{name}}</h2>
-  </div>
-  <div class= "learnlist-container">
     <div class= "lessonContainer" id= "lesson-container-new">
+      <div id="mediabox-new" class="mediaContainer">
+        <input type="text" class="form-control input-lg"  id="provider"  placeholder="Enter the link to the lesson content">
+        <a href="#" class="btn btn-default btn-md pull-right" id="find-lesson-button">Find</a>
+      </div>
+      <div id="mediaInfo-last">
+      </div>
+    </div>
+  </div>
+</script>
+
+<!-- lesson container -->
+
+<script id="lessoncontainer-template" type="text/x-handlebars-template">
+  <div class= "lessonContainer" id= "lesson-container-new">
+    <div id="mediabox-new" class="mediaContainer">
       <input type="text" class="form-control input-lg"  id="provider"  placeholder="Enter the link to the lesson content">
       <a href="#" class="btn btn-default btn-md pull-right" id="find-lesson-button">Find</a>
     </div>
-  </div>
-  <div id= "lesson-control" class= "lessonControl" style="display: none;">
-    <a href="#" class="btn btn-default btn-md pull-right" id="add-lesson-button">Add another lesson</a>
-    <a href="#" class="btn btn-default btn-md pull-right" id="delete-lesson-button">Delete lesson</a>
-
+    <div id="mediaInfo-last"></div>
   </div>
 </script>
+
+<!-- lesson summary  -->
+
+<script id="lessonsummary-template" type="text/x-handlebars-template"> 
+  <div class="row">
+  <div class="summaryThumb"><img src="{{thumbnail_url}}"></div>
+  <div class="summaryInfo">
+  <div class="summaryTitle"><strong>{{title}}</strong></div> 
+  <div class="summaryDescription">{{description}}</div>
+  <div class="summaryLink"><a href="{{provider_url}}" target="_blank">
+   {{provider_name}}</a> </div>
+   </div>
+   <div class="clear"></div>
+   </div>
+ </script>
+
+
+ <!-- lesson info and nav -->
+
+ <script id="lessoninfo-template" type="text/x-handlebars-template">   
+
+   <div class="summaryTitle"><strong>{{title}}</strong></div> 
+   <div class="summaryThumb"></div>
+   <div class="summaryDescription">{{description}}</div>
+   <div class="summaryLink"><a href="{{provider_url}}" target="_blank">
+     {{provider_name}}</a> </div>
+     <button type="submit" id="delete-lesson-button" class="btn btn-danger pull-right">Delete</button>
+     <button type="submit" id="keep-lesson-button" class="btn btn-success pull-right">Keep</button>
+
+   </script>
+   
+
+   <!-- main page original content -->
+   <div class="container-fluid">
+    <div id="new-learnlist-input">
+      <h2>Share your learning recommendations with the world, or just your friends!</h2>
+
+      <form class="form-inline" role="form">
+
+        <input type="text" class="form-control input-lg"  id="new-learnlist-name"  placeholder="Enter the name of new LearnList&#153;">
+        <a href="#" class="btn btn-primary btn-lg" id="new-learnlist-button">Let's get started</a>
+
+      </form>
+    </div>
+    <div id="learnlist-content"></div>
+  </div>
+
+
