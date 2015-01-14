@@ -1,7 +1,7 @@
 class LearnlistsController < ApplicationController
 
 	before_action :find_learnlist, only: [:show, :update, :destroy, :edit]
-
+	before_action :authenticate_user!, except:[:index, :show]
 	def index
     # need to make this user specific - will create a search function
     @learnlists = Learnlist.all
@@ -12,7 +12,7 @@ class LearnlistsController < ApplicationController
 	end
 
 	def create
-		@learnlist = Learnlist.create learnlist_params
+		@learnlist = Learnlist.create learnlist_params  # @learnlist = current_user.learnlists.new(learnlist_params)
 		redirect_to @learnlist
 	end
 

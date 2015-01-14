@@ -31,6 +31,8 @@ class Lesson < ActiveRecord::Base
 
   validates :provider_url, presence: true
 
+  belongs_to :user
+
   before_create -> do
     url = provider_url
     key = ENV['EMBEDLY_API_KEY']

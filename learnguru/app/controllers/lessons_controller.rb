@@ -1,6 +1,6 @@
 class LessonsController < ApplicationController
   before_action :find_lesson, only: [:show, :update, :destroy, :edit]
-
+  before_action :authenticate_user!, except:[:index, :show]
   def index
     @lessons = Lesson.all
   end
