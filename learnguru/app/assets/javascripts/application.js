@@ -20,67 +20,122 @@
 
 $(function () {
 
-  var learnboxtemplate = Handlebars.compile($("#entry-template").html());
 
+  var createNewLearnList = function () {
+
+    var newlearnlistname = $("#new-learnlist-name").val();
+    var newlearnlisttitle = {name: newlearnlistname};
+
+    console.log("function");
+    $.ajax({
+      method: "POST",
+      url: "/learnlists",
+      dataType: "json",
+      data: {
+        learnlist: {
+          name: newlearnlistname,
+          status: 'draft' }
+        },
+        success: function (data) {
+         $("#new-learnlist-input").hide();
+         var learnlisttitletemplate = Handlebars.compile($("#learnlisttitle-template").html());
+         $("#learnlist-content").html(learnlisttitletemplate(newlearnlisttitle));
+         $("#learnlist-content").data("id",data.id);
+       }
+     })
+  }
+
+  $("#new-learnlist-name").on("keypress", function (event) {
+    if (event.keyCode === 13 && $(this).val() !== "") {
+      event.preventDefault();  
+      console.log("enter");
+      createNewLearnList();
+    }
+  });
+  
   $("#new-learnlist-button").click(function () {
+    event.preventDefault();  
+    console.log("button");
+    createNewLearnList();
+  });
 
-    // create function to build lesson box
-    // create function to create learnlist
-      var newlearnlistname = $("#new-learnlist-name").val();
-      var newlearnlisttitle = {name: newlearnlistname};
-      $("#learnlist-content").html(learnboxtemplate(newlearnlisttitle));
-      event.preventDefault();
-      $("#new-learnlist-input").hide();
-      $.ajax({
-        method: "POST",
-        url: "/learnlists",
-        dataType: "json",
-        data: {
-          learnlist: {
-            name: newlearnlistname,
-            status: 'draft' }
-          },
-          success: function (data) {
-            console.log("response"+data.id);
-            $("#learnlist-content").data("id",data.id);
-          }
-        })
-
-
-  $("#find-lesson-button").on("click", function () { 
-    console.log("new lesson");
+  $("body").on("click", "#find-lesson-button", function () { 
     var lessonurl = $("#provider").val();
     var learnlistID = $("#learnlist-content").data("id");
     console.log(learnlistID);
-        $.ajax({
-        method: "POST",
-        url: "/lessons",
-        dataType: "json",
-        data: {
-          lesson: {
-            provider_url: lessonurl,
-            learnlist_ids: [learnlistID]
-                  }
-          },
-          success: function (data) {
+    $.ajax({
+      method: "POST",
+      url: "/lessons",
+      dataType: "json",
+      data: {
+        lesson: {
+          provider_url: lessonurl,
+          learnlist_ids: [learnlistID]
+        }
+      },
+      success: function (data) {
+        newlessondata = {
+          title: data.title,
+          description: data.description,
+          thumbnail_url: data.thumbnail_url,
+          provider_url: data.provider_url
+        }
+        if (data.provider_name === 'undefined') {
+          console.log("undef");
+          newlessondata.provider_name = data.provider_url}
+          else {newlessondata.provider_name = data.provider_url}
+            console.log(newlessondata);
+          var lessontemplate = Handlebars.compile($("#lessoninfo-template" ).html());  
 
-            console.log("response"+data.id);
-            console.log("response"+data.title);
-            $("#lesson-container-new").data("id",data.id).attr("id","lesson-container-"+data.id);
-            $("#lesson-container-"+data.id).html(data.html);
-            $(".lessonControl").css("display","block");
-          }
-        })
-      });
-    });
-
-  $("#add-lesson-button").on("click", function () { 
-
-      });
-   
+          $("#lesson-container-new").data("id",data.id).attr("id","lesson-container-last");
+          $("#mediabox-new").attr("id","mediabox-last");
+          $("#mediabox-last").html(data.html);
+          $("#mediaInfo-last").html(lessontemplate(newlessondata));
+          $(".lessonControl").css("display","block");
+        }
+      })
+});
 
 
-    });
+$("body").on("click", "#keep-lesson-button", function () { 
+  console.log('keep');
+  var lessoncontainertemplate = $("#lessoncontainer-template").html();
+  var lessonsummarytemplate = Handlebars.compile($("#lessonsummary-template").html());
+
+
+  $("#lesson-container-last").html(lessonsummarytemplate(newlessondata));
+  $("#lesson-container-last").after(lessoncontainertemplate);
+  $("#lesson-container-last").attr("id","lesson-container");
+  $("#mediabox-last").attr("id","mediabox");
+
+});
+
+$("body").on("click", "#delete-lesson-button", function () { 
+     console.log('delete');
+     var lessoncontainertemplate = $("#lessoncontainer-template").html();
+     var lessonID =  $("#lesson-container-last").data("id");
+ $.ajax({
+    method: "POST",
+    url: "/lessons/" + lessonID,
+    dataType: "json",
+      data: {
+        _method: "DELETE"
+      },
+    success: function (data) {
+      $("#lesson-container-last").html(lessoncontainertemplate);
+      $("#lesson-container-last").attr("id","lesson-container-new");
+    }
+  })
+});
+
+
+
+});
+
+
+
+
+
 
 
 

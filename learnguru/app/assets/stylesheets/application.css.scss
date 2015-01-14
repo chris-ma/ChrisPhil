@@ -1,30 +1,30 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+*= require_tree .
+*= require_self
 
 
- */
+*/
 @import "bootstrap";
 
 * {
-  box-sizing: border-box;
-  background-color: #36465D;
-  color: white;
-  } 
+box-sizing: border-box;
+background-color: #36465D;
+color: white;
+} 
 
 .nav-pills{
-    border-radius: 0px;
+border-radius: 0px;
 
 }
 
@@ -33,47 +33,90 @@
 }
 
 .menu-left{
-    
-    height: 100vh;
+
+height: 100vh;
 }
 
 #separator-space{
-    height: 3vh;
+height: 3vh;
 }
 
 .lesson-box {
-    width: 100%;
-    background: #fff;
-    border:1px solid black;
+width: 100%;
+background: #fff;
+border:1px solid black;
 }
 
 .embedly-embed{
-    width: 100%
+width: 100%
+}
+
+.small-thumb{
+  max-width: 100px;
+  max-height: 60px;
+}
+
+.summaryThumb{
+  max-width: 45%;
+  float: left;
+}
+
+.summaryInfo{
+  max-width: 45%;
+  float: right;
 }
 
 
-.wrap {
-  position: relative;
-  }
+.summaryThumb img {
+  width: 100%
+}
 
-.learnlist-container {
-    padding: 40px;
-    width: 100%;
-    margin: auto 0;
-    border: 1px solid grey;
-    border-style: dashed;
-    border-radius: 15px;
+.wrap {
+position: relative;
+}
+
+.learnlistContainer {
+padding: 40px;
+width: 100%;
+margin: auto 0;
+border: 1px solid grey;
+border-style: dashed;
+border-radius: 15px;
+}
+
+.lessonSummary {
+padding: 5px;
+width: 100%;
+margin: 5px auto;
+border: 1px solid grey;
+border-style: dashed;
+border-radius: 5px;
+}
+
+.learnlistTitle {
+color: solid grey;
+padding: 5px;
+width: 100%;
+margin: 5px auto;
+border: 1px solid grey;
+border-style: dashed;
+border-radius: 5px;
+}
+
+.lessonContainer {
+width: 95%;
+margin: 10px auto;
 }
 
 .lessonControl {
-    display: inline-block;
-    display: none;
-    padding: 10px;
-    margin: 10px;
-    width: 100%;
-    margin: auto 0;
-    border: 1px solid grey;
-    border-style: dashed;
-    border-radius: 5px;
+display: inline-block;
+display: none;
+padding: 10px;
+margin: 10px;
+width: 100%;
+margin: auto 0;
+border: 1px solid grey;
+border-style: dashed;
+border-radius: 5px;
 
 }

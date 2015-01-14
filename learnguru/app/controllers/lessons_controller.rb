@@ -26,30 +26,39 @@ class LessonsController < ApplicationController
   end
 
   def show
-        respond_to do |format|
+    respond_to do |format|
       format.html
       format.json { render json: @lesson }
     end
   end
 
-  private 
+  def destroy
+    @lesson.destroy
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.json { render json:   {status: "ok"}
+                    }
+    end
+  end
+
+  private
 
   def lesson_params
     params.require(:lesson).permit(
-        :name,
-        :description,
-        :provider_url,
-        {
-          learnlist_ids: [],
-          quizzes_attributes: [:id, :name, :lesson_id, :_destroy],
-          questions_attributes: [:id, :content, :quiz_id, :_destroy]
-        }
+      :name,
+      :description,
+      :provider_url,
+      {
+        learnlist_ids: [],
+        quizzes_attributes: [:id, :name, :lesson_id, :_destroy],
+        questions_attributes: [:id, :content, :quiz_id, :_destroy]
+      }
     )
   end
 
 
   def find_lesson
-    @lesson = Lesson.find params[:id]   
+    @lesson = Lesson.find params[:id]
   end
 
 
