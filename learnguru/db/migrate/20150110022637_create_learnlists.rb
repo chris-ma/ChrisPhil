@@ -5,6 +5,7 @@ class CreateLearnlists < ActiveRecord::Migration
       t.text :description
       t.boolean :public
       t.string :status
+      t.string :slug, unique: true
 
       t.timestamps null: false
     end

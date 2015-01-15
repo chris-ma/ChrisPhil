@@ -1,0 +1,10 @@
+
+<h2><%= @learnlist.name %></h2>
+<% @learnlist.lessons.each do |lesson|  %>
+ID: <%= lesson.id %>
+<%= lesson.title %>
+<%= image_tag lesson.thumbnail_url, class: "small-thumb" %><br>
+<%= lesson.description %><br>
+<% end %>
+<h3><%= @learnlist.description %></h3>
+<h3><%= @learnlist.created_at %></h3>

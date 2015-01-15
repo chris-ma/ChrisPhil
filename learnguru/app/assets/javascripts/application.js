@@ -130,6 +130,28 @@ $("body").on("click", "#delete-lesson-button", function () {
   })
 });
 
+$("body").on("click", "#finished-learnlist-button", function () { 
+     console.log('finished');
+     var learnlistID = $("#learnlist-content").data("id");
+ $.ajax({
+      method: "POST",
+      url: "/learnlists/" + learnlistID,
+      dataType: "json",
+      data: {
+        _method: "PATCH",
+        learnlist: {
+          status: 'complete'}
+        },
+        success: function (data) {
+          console.log('updated');
+         // $("#new-learnlist-input").hide();
+         // var learnlisttitletemplate = Handlebars.compile($("#learnlisttitle-template").html());
+         // $("#learnlist-content").html(learnlisttitletemplate(newlearnlisttitle));
+         // $("#learnlist-content").data("id",data.id);
+       }
+     })
+});
+
 
 
 });

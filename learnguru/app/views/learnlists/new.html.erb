@@ -1,4 +1,4 @@
-<script id="learnlisttitle-template" type="text/x-handlebars-template">   
+<script id="learnlisttitle-template" type="text/x-handlebars-template">    
   <div id="learnlist-title" class="learnlistTitle">
     <h1>{{name}}</h1>
     <h3>Created by: Philip Hancock</h3>
@@ -7,35 +7,43 @@
 
     <div class= "lessonContainer" id= "lesson-container-new">
       <div id="mediabox-new" class="mediaContainer">
-       <div class="input-group">
-        <input type="text" class="form-control input-lg" id="new-provider" placeholder="Enter the link to the lesson content">
-        <span class="input-group-btn">
-          <button class="btn btn-primary btn-lg" type="button" id="find-lesson-button">Add
-          </button>
-        </span>
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <div class="col-sm-11">
+              <input class="form-control input-lg" id="new-provider" type="text" placeholder="Enter the link to the lesson content">
+            </div>
+            <ul class="nav nav-pills">
+              <li role="presentation" id="find-lesson-button" class="active"><a href="#">Find</a></li>
+
+            </ul>
+          </div>
+        </form>
       </div>
+      <div id="mediaInfo-last"></div>
+    </div>
+</script> 
+  
+
+  <!-- lesson container -->
+
+  <script id="lessoncontainer-template" type="text/x-handlebars-template"> 
+    <div class= "lessonContainer" id= "lesson-container-new">
+      <div id="mediabox-new" class="mediaContainer">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <div class="col-sm-9">
+              <input class="form-control input-lg" id="new-provider" type="text" placeholder="Enter the link to the lesson content">
+            </div>
+            <ul class="nav nav-pills">
+              <li role="presentation" id="find-lesson-button" class="active"><a href="#">Find</a></li>
+              <li role="presentation" id="finished-learnlist-button"><a href="#">Finished</a></li>
+            </ul>
+          </div>
+        </form>
     </div>
 
     <div id="mediaInfo-last"></div>
   </div>
-</script>
-
-<!-- lesson container -->
-
-<script id="lessoncontainer-template" type="text/x-handlebars-template">
-  <div class= "lessonContainer" id= "lesson-container-new">
-    <div id="mediabox-new" class="mediaContainer">
-     <div class="input-group">
-      <input type="text" class="form-control input-lg" id="new-provider" placeholder="Enter the link to the lesson content">
-      <span class="input-group-btn">
-        <button class="btn btn-primary btn-lg" type="button" id="find-lesson-button">Add
-        </button>
-      </span>
-    </div>
-  </div>
-
-  <div id="mediaInfo-last"></div>
-</div>
 </script>
 
 <!-- lesson summary  -->
@@ -63,6 +71,7 @@
    <div class="summaryDescription">{{description}}</div>
    <div class="summaryLink"><a href="{{provider_url}}" target="_blank">
      {{provider_name}}</a> </div>
+
      <button type="submit" id="delete-lesson-button" class="btn btn-danger pull-right">Delete</button>
      <button type="submit" id="keep-lesson-button" class="btn btn-success pull-right">Keep</button>
 
@@ -72,19 +81,19 @@
    <!-- main page original content -->
    <div class="container-fluid">
     <div id="new-learnlist-input">
-    <div class="row text-center">
-      <%=  image_tag "guru.png" %>
+      <div class="row text-center">
+        <%=  image_tag "guru.png" %>
+      </div>
+      <h2>Share your curated learning recommendations with the world!</h2>
+      <div class="input-group">
+        <input type="text" class="form-control input-lg" id="new-learnlist-name" placeholder="Enter the name of a new LearnList&#153;">
+        <span class="input-group-btn">
+          <button class="btn btn-primary btn-lg" type="button" id="new-learnlist-button">Curate!
+          </button>
+        </span>
+      </div>
     </div>
-    <h2>Share your curated learning recommendations with the world!</h2>
-    <div class="input-group">
-      <input type="text" class="form-control input-lg" id="new-learnlist-name" placeholder="Enter the name of a new LearnList&#153;">
-      <span class="input-group-btn">
-        <button class="btn btn-primary btn-lg" type="button" id="new-learnlist-button">Curate!
-        </button>
-      </span>
-    </div>
+    <div id="learnlist-content"></div>
   </div>
-  <div id="learnlist-content"></div>
-</div>
 
 
