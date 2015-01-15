@@ -23,6 +23,7 @@ background-color: #36465D;
 color: white;
 } 
 
+
 .social-right{
 text-align: right;
 
@@ -132,3 +133,32 @@ border-style: dashed;
 border-radius: 5px;
 
 }
+
+.container{
+  width: 100%;
+  border: none;
+}
+/*footer*/
+footer {
+  padding: 35px auto;
+  margin-bottom: 35px;
+  font-size: 16px;
+}
+/*end footer*/
+
+/*navbar*/
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 0; 
+  border: none;
+  font-size: 16px;
+  font-style: 
+}
+
+.navbar li{
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+}
+/*end navbar*/
