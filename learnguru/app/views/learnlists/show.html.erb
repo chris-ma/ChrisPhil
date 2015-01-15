@@ -1,10 +1,46 @@
 
-<h2><%= @learnlist.name %></h2>
-<% @learnlist.lessons.each do |lesson|  %>
-ID: <%= lesson.id %>
-<%= lesson.title %>
-<%= image_tag lesson.thumbnail_url, class: "small-thumb" %><br>
-<%= lesson.description %><br>
-<% end %>
-<h3><%= @learnlist.description %></h3>
-<h3><%= @learnlist.created_at %></h3>
+<div class="container-fluid">
+
+	<div id="learnlist-content">
+		<div id="learnlist-title" class="learnlistTitle">
+			<h1><%= @learnlist.name %></h1>
+			<% if @learnlist.user %>
+			Created by:<%= @learnlist.user.name %>
+			<% end %>
+		</div>
+		<div class="learnlistContainer">
+			<div class= "lessonContainer" id= "lesson-container-new">
+				<% @learnlist.lessons.each do |lesson| %>
+				<div class="row">
+					<div class="showThumb col-sm-6"><a href="#" data-toggle="modal" data-target="#iframeModal"><img src="<%= lesson.thumbnail_url %>"></a>
+					</div>
+					<div class="showInfo col-sm-6">
+						<div class="showDescription"><a href="#" data-toggle="modal" data-target="#iframeModal"><%= lesson.description %></a></div>
+						<div class="showLink"><a href="<%= lesson.provider_url %>" target="_blank">
+							<%= lesson.provider_name %></a> </div>
+						</div>
+						<div class="clear"></div>
+					</div>
+					
+					<div class="modal fade" id="iframeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+									
+								</div>
+								
+
+								<%= lesson.html.html_safe %>
+								
+
+								
+								
+							</div>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
