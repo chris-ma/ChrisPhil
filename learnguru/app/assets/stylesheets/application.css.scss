@@ -157,6 +157,9 @@ border-radius: 5px;
 .container{
   width: 100%;
   border: none;
+  padding: 0px;
+  margin: 0px;
+  background-color: #36465D;
 }
 /*footer*/
 footer {
@@ -173,8 +176,14 @@ footer {
   min-height: 50px;
   margin-bottom: 0; 
   border: none;
+  border-radius: 0px;
   font-size: 16px;
 }
+.col-md-12 .col-xs-12{
+  background-color: #36465D;
+  
+}
+
 
 .navbar li{
   font-size: 16px;
@@ -182,8 +191,17 @@ footer {
   color: white;
 }
 
+.navbar-default{
+  background-color: #36465D;
+  border-color: #36465D;
+}
+
+.navbar-header{
+  background-color: #36465D;
+}
+
 .gravatar {
-  width: 27px;
+  width: 20px;
   display: inline-block;
 }
 /*end navbar*/

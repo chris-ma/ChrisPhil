@@ -1,7 +1,7 @@
 class QuizzesController < ApplicationController
   before_action :find_quiz, only: [:show, :update, :destroy, :edit]
-  before_action :quiz_params, only: [:show, :update, :destroy, :edit]
-  before_action :question_params, only: [:show, :update, :destroy, :edit]
+  
+  
 
   def index
     @quizzes = Quiz.all   
@@ -14,7 +14,7 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    @quiz = Quiz.new quiz_params 
+    @quiz = Quiz.new(quiz_params) 
     if @quiz.save
       redirect_to quiz_path @quiz
     else
@@ -49,7 +49,8 @@ class QuizzesController < ApplicationController
         :lesson_id,
         :question_id,
         {
-          questions_attributes: [:id, :content, :quiz_id, :_destroy]
+          questions_attributes: [:id, :content, :quiz_id, :_destroy],
+          answers_attributes: [:id, :content, :question_id, :correct, :_destroy]
         }
     )
   end
