@@ -134,7 +134,7 @@ $("body").on("click", "#finished-learnlist-button", function () {
      console.log('finished');
      var learnlistID = $("#learnlist-content").data("id");
  $.ajax({
-      method: "POST",
+      method: "PUT",
       url: "/learnlists/" + learnlistID,
       dataType: "json",
       data: {
