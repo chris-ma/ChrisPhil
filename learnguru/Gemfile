@@ -4,7 +4,7 @@ gem 'devise'
 gem 'pry-rails'
 gem 'cocoon'
 gem 'handlebars-rails', '~> 0.4.2'
-
+gem 'zeroclipboard-rails'
 
 # require cancancan - management tool for permission level access
 gem 'cancancan', '~> 1.10'
