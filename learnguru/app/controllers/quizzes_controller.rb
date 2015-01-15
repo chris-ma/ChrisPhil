@@ -1,14 +1,15 @@
 class QuizzesController < ApplicationController
   before_action :find_quiz, only: [:show, :update, :destroy, :edit]
+  before_action :quiz_params, only: [:show, :update, :destroy, :edit]
+  before_action :question_params, only: [:show, :update, :destroy, :edit]
 
   def index
     @quizzes = Quiz.all   
   end
 
   def new
-
     @quiz = Quiz.new
-    3.times { @quiz.questions.build }
+    1.times { @quiz.questions.build }
     
   end
 
@@ -25,6 +26,11 @@ class QuizzesController < ApplicationController
   end
 
   def update
+    if @quiz.update(quiz_params)
+      redirect_to @quiz
+    else
+      render :edit
+    end
   end
 
   def edit
@@ -38,7 +44,14 @@ class QuizzesController < ApplicationController
   private
 
   def quiz_params
-    params.require(:quiz).permit(:id, :name)
+        params.require(:quiz).permit(
+        :name,
+        :lesson_id,
+        :question_id,
+        {
+          questions_attributes: [:id, :content, :quiz_id, :_destroy]
+        }
+    )
   end
 
   def find_quiz
@@ -51,6 +64,7 @@ class QuizzesController < ApplicationController
         :lesson_id,
         {
           questions_attributes: [:id, :content, :quiz_id, :_destroy]
+          
         }
     )
   end
