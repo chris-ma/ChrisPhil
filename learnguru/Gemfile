@@ -53,7 +53,13 @@ gem 'tinyembedly'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+
+#log in avatar
 gem 'gravtastic'
+
+#social media sharing
+gem 'shareable'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

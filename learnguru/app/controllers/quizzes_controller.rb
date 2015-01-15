@@ -6,7 +6,10 @@ class QuizzesController < ApplicationController
   end
 
   def new
+
     @quiz = Quiz.new
+    3.times { @quiz.questions.build }
+    
   end
 
   def create

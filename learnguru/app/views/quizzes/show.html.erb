@@ -1,10 +1,15 @@
-
+<h2>Quiz</h2>
 <p>
   <strong>Name:</strong>
+
   <%= @quiz.name %>
 </p>
 
-<br>
+<ol>
+  <% for question in @quiz.questions %>
+  <li><%=  question.content %></li>
+  <% end %>
+</ol>
  <%= link_to "Edit", edit_quiz_path(@quiz) %> |
   <%= link_to "Delete", @quiz, :confirm => 'Are you sure?', :method => :delete %> |
   <%= link_to "View All", quizzes_path %>

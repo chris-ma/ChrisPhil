@@ -11,36 +11,34 @@
 </head>
 
 <body>
-
-<div class="navbar-header col-lg-12 ">
-  
-    
-  
+    <div class="navbar-header col-lg-12 ">
           <ul class="nav navbar-nav navbar-right">
-
-          <li><h3>Learn Guru</h3></li>
-                <li class="learnlist-nav">
-                    <%= link_to 'Access Learnlists', learnlists_path  %>
+              <li><h3>Learn Guru</h3></li>
+                    <li class="learnlist-nav">
+                        <%= link_to 'Access Learnlists', learnlists_path  %>
+                    </li>
+                    <li class="learnlist-nav">
+                        <%= link_to 'Create Learnlists', new_learnlist_path  %>
+                    </li>
+                      <% if user_signed_in? %>
+     
+                <li>
+                   <%= link_to "Logout", destroy_user_session_path, method: :delete %>
                 </li>
-                <li class="learnlist-nav">
-                    <%= link_to 'Create Learnlists', new_learnlist_path  %>
-                </li>
-                  <% if user_signed_in? %>    
-                      <!-- <%= image_tag current_user.gravatar_url %> -->
-                      <li>
-                        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-                      </li>
-                    <% else %>
-                      <li>
-                        <%= link_to "Sign up", new_user_registration_path %>
-                      </li>
-                      <li >
-                        <%= link_to "Login", new_user_session_path%>
-                      </li> 
-                  <% end %>
-          </ul>
 
-</div>
+               <li>   
+                  <%= image_tag current_user.gravatar_url %>
+               </li>
+                  <% else %>
+                <li>
+                  <%= link_to "Sign up", new_user_registration_path %>
+                </li>
+                <li >
+                  <%= link_to "Login", new_user_session_path%>
+                </li> 
+            <% end %>
+        </ul>
+    </div>
 
       <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>">
