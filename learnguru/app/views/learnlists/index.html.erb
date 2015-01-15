@@ -1,16 +1,23 @@
-<div class="container">
-  <div class="learnlist-container">
+<div class="form-custom">
+  <div class="container">
+
     <% @learnlists.each do |learnlist| %>
-    <h2><%= learnlist.name %></h2>
-    <% learnlist.lessons.each do |lesson|  %>
-    ID: <%= lesson.id %>
-    <%= lesson.title %>
-    <%= image_tag lesson.thumbnail_url, class: "small-thumb img-rounded" %><br>
-    <%= lesson.description %><br>
-    <% end %>
-      <div class="social-right navbar-right "><%= twitter_button %></div>
-      <h3><%= learnlist.description %></h3>
-      <h3><%= learnlist.created_at %></h3>
-    <% end %>
-  </div>
+      <h2><%= learnlist.name %></h2>
+  
+</div>
+
+<div class="container">
+   
+      <% learnlist.lessons.each do |lesson|  %>
+      Lesson: <%= lesson.id %><br>
+      <h4><%= lesson.title %></h4><br>
+      <%= image_tag lesson.thumbnail_url, class: "small-thumb img-rounded" %><br>
+      <p><%= lesson.description %></p>
+      <% end %>
+        <%= twitter_button %><br>
+        <p><%= learnlist.description %></p>
+        <p><%= learnlist.created_at %></p>
+      <% end %>
+ 
+</div>
 </div>

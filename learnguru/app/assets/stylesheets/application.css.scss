@@ -160,6 +160,8 @@ border-radius: 5px;
   margin-bottom: 0; 
   border: 1px solid transparent;
   font-size: 16px;
+  background-color: #36465D;
+  border-color: #36465D;
 }
 
 .navbar-brand {
@@ -183,7 +185,8 @@ border-radius: 5px;
 
 
 .navbar-default {
-  background-color: #f8f8f8;
+  background-color: #36465D;
+  border-color: #36465D;
   border: 0;
   padding: 10px;
 }
@@ -193,8 +196,11 @@ border-radius: 5px;
 }
 
 .form-custom {
-  max-width: 500px;
+
   margin: 10% auto;
+  border:none;
+  background-color: #36465D;
+  border-color: #36465D;
 }
 
 .gravatar {
@@ -229,6 +235,6 @@ footer {
 }
 
 .container{
-  max-width: 100vw;
-  min-width: 100vw;
+  width: 100vw;
+
 }

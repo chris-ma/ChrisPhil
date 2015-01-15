@@ -1,15 +1,19 @@
-<h2>Quiz</h2>
+<div class="form-custom">
+  <div class="container">
+    <h2>Quiz</h2>
 
-<p>
-  <strong>Name:</strong>
-  <%= @quiz.name %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @quiz.name %>
+    </p>
 
-<ol>
-  <% for question in @quiz.questions %>
-  <li><%=  question.content %></li>
-  <% end %>
-</ol>
- <%= link_to "Edit", edit_quiz_path(@quiz) %> |
-  <%= link_to "Delete", @quiz, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", quizzes_path %>
+    <ol>
+      <% for question in @quiz.questions %>
+      <li><%=  question.content %></li>
+      <% end %>
+    </ol>
+     <%= link_to "Edit", edit_quiz_path(@quiz) %> |
+      <%= link_to "Delete", @quiz, :confirm => 'Are you sure?', :method => :delete %> |
+      <%= link_to "View All", quizzes_path %>
+  </div>
+</div>

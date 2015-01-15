@@ -1,29 +1,31 @@
+<div class="container">
+  <div class="form-custom">
+    
+    <%= form_for @quiz do |f| %>
+        <p>
+        <%= f.label :name %><br>
+        <%= f.text_field :name, class: "form-control" %>
+        </p>
+        <%= f.fields_for :questions do |builder| %>
+          <fieldset>
+          <%= builder.label :content, "Question " %><br/>
+          <%= builder.text_area :content, class: "form-control" %>
+          <%= builder.hidden_field :_destroy %>
+          <%= link_to "remove", '#', class: "remove_fields" %>
+          
 
-<%= form_for @quiz do |f| %>
+          <!-- answers -->
+          <%= f.fields_for :answers do |builder| %>
+            <%= render 'answer_fields', f: builder %>
+          <% end %>
 
-  <p>
-  <%= f.label :name %><br>
-  <%= f.text_field :name %>
-  </p>
 
-  <%= f.fields_for :questions do |builder| %>
-    <fieldset>
-    <%= builder.label :content, "Question " %><br/>
-    <%= builder.text_area :content %>
-    <%= builder.hidden_field :_destroy %>
-    <%= link_to "remove", '#', class: "remove_fields" %>
-      <!-- answers -->
-      <%= f.fields_for :answers do |builder| %>
-        <%= render 'answer_fields', f: builder %>
-         
-        
+          <%= link_to_add_fields "Add Question", f, :questions %>
+          </fieldset>
+        <% end %>
+
+      <%= f.submit %>
+
       <% end %>
-
-
-    <%= link_to_add_fields "Add Question", f, :questions %>
-    </fieldset>
-  <% end %>
-
-<%= f.submit %>
-
-<% end %>
+  </div>
+</div>

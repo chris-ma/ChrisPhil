@@ -6,12 +6,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
 
   <!-- Navigation -->
-  <div class="container">
-    <nav class="navbar navbar-default " role="navigation">
+ <div class="container  col-xs-12 col-md-12 col-lg-12">
+  <div class="form-custom"> 
+    <nav class="navbar " role="navigation">
       <div class="container">
         <div class="navbar-header ">
           <%= link_to "Learn Guru",root_path, class: "navbar-brand" %>
@@ -46,6 +46,7 @@
       </div>
     </nav>
   </div>
+</div>
     <!-- /Navigation -->
 
         <%= yield %>
@@ -64,9 +65,8 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
     <!-- Footer -->
     <footer class=" col-xs-12 col-md-12 col-lg-12">
-      <hr>
-      <p class="pull-right"><a href="#">Back to top</a></p>
-      <p>Learn Guru</p>
+      
+     
     </footer>
     <!-- /Footer -->
   </body>

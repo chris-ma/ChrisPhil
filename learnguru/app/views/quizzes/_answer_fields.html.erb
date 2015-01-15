@@ -1,7 +1,11 @@
-<fieldset>
-  <%= f.label :content, "Answer" %>
-  <%= f.text_field :content %>
-  <%= f.hidden_field :_destroy %>
-  <%= link_to "remove", '#', class: "remove_fields" %>
+<div class="form-custom">
+  <div class="container">
+    <fieldset>
+      <%= f.label :content, "Answer" %>
+      <%= f.text_field :content, class: "form-control" %>
+      <%= f.hidden_field :_destroy %>
+      <%= link_to "remove", '#', class: "remove_fields" %>
 
-</fieldset>
+    </fieldset>
+  </div>
+</div>
