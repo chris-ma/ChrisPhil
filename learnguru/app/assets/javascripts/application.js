@@ -166,8 +166,10 @@ $("body").on("click", "#share-learnlist-button", function () {
         },
         success: function (data) {
           console.log('ready to share');
-          var sharebox = $("#learnlist-sharebox").html();
-         $("#learnlist-share").html(sharebox);
+          var shareboxtemplate = Handlebars.compile($("#learnlist-sharebox").html());
+          var shareboxdata = {description: learnlistDescription};
+          $("#learnlist-share").html(shareboxtemplate(newlessondata));
+
        }
      })
 });
