@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150114230045) do
     t.text     "description"
     t.boolean  "public"
     t.string   "status"
+    t.string   "slug"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -109,6 +110,7 @@ ActiveRecord::Schema.define(version: 20150114230045) do
     t.string   "name"
     t.string   "provider"
     t.integer  "uid"
+    t.string   "profile_image"
     t.string   "username"
   end
 

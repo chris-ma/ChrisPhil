@@ -16,7 +16,7 @@ Devise.setup do |config|
   # config.mailer = 'Devise::Mailer'
 
 
-  config.omniauth :twitter, ENV["TWITTER_CONSUMER_KEY"], ENV["TWITTER_SECRET_KEY"], {:scope => 'offline_access,email,display_url'}
+  config.omniauth :twitter, ENV["TWITTER_CONSUMER_KEY"], ENV["TWITTER_SECRET_KEY"], {:scope => 'offline_access,email,profile_image'}
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
