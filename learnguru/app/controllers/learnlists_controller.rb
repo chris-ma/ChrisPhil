@@ -21,6 +21,7 @@ class LearnlistsController < ApplicationController
 
   def update
     @learnlist = Learnlist.find params[:id]
+    @learnlist.update learnlist_params
     respond_to do |format|
       format.html
       format.json { render json: @learnlist }
