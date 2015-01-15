@@ -167,7 +167,7 @@ $("body").on("click", "#share-learnlist-button", function () {
         success: function (data) {
           console.log('ready to share');
           var shareboxtemplate = Handlebars.compile($("#learnlist-sharebox").html());
-          var shareboxdata = {description: learnlistDescription};
+          var shareboxdata = {Description: learnlistDescription};
           $("#learnlist-share").html(shareboxtemplate(newlessondata));
 
        }
