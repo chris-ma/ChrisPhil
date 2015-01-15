@@ -144,10 +144,30 @@ $("body").on("click", "#finished-learnlist-button", function () {
         },
         success: function (data) {
           console.log('updated');
-         // $("#new-learnlist-input").hide();
-         // var learnlisttitletemplate = Handlebars.compile($("#learnlisttitle-template").html());
-         // $("#learnlist-content").html(learnlisttitletemplate(newlearnlisttitle));
-         // $("#learnlist-content").data("id",data.id);
+         var learnlistsharetemplate = $("#learnlist-add-description").html();
+         $("#lesson-container-new").html(learnlistsharetemplate);
+         $("#lesson-container-new").attr("id","learnlist-share");
+       }
+     })
+});
+
+$("body").on("click", "#share-learnlist-button", function () { 
+     console.log('shared');
+     var learnlistID = $("#learnlist-content").data("id");
+     var learnlistDescription = $("#learnlist-description").val();
+ $.ajax({
+      method: "PUT",
+      url: "/learnlists/" + learnlistID,
+      dataType: "json",
+      data: {
+        _method: "PATCH",
+        learnlist: {
+          description: learnlistDescription}
+        },
+        success: function (data) {
+          console.log('ready to share');
+          var sharebox = $("#learnlist-sharebox").html();
+         $("#learnlist-share").html(sharebox);
        }
      })
 });

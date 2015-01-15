@@ -21,7 +21,7 @@
       </div>
       <div id="mediaInfo-last"></div>
     </div>
-</script> 
+  </script> 
   
 
   <!-- lesson container -->
@@ -40,60 +40,81 @@
             </ul>
           </div>
         </form>
-    </div>
+      </div>
 
-    <div id="mediaInfo-last"></div>
+      <div id="mediaInfo-last"></div>
+    </div>
+  </script>
+
+  <!-- lesson summary  -->
+
+  <script id="lessonsummary-template" type="text/x-handlebars-template"> 
+    <div class="row">
+      <div class="summaryThumb"><img src="{{thumbnail_url}}"></div>
+      <div class="summaryInfo">
+        <div class="summaryTitle"><strong>{{title}}</strong></div> 
+        <div class="summaryDescription">{{description}}</div>
+        <div class="summaryLink"><a href="{{provider_url}}" target="_blank">
+         {{provider_name}}</a> </div>
+       </div>
+       <div class="clear"></div>
+     </div>
+   </script>
+
+   <!-- learnlist add description -->
+
+   <script id="learnlist-add-description" type="text/x-handlebars-template"> 
+    <div class="row">
+      <div class="learnlistTitle"><strong>Description:</strong></div> 
+      <textarea class="form-control" id="learnlist-description" rows="3" placeholder="Add a few words to explain the content of your learnlist and what you should learn"></textarea>
+    </div>
+    <div class="row">
+     <div class="col-lg-10 darkBody text-center">
+      <a href="#" class="btn btn-lg btn-primary" id="share-learnlist-button">Share it!</a>
+    </div>
   </div>
 </script>
 
-<!-- lesson summary  -->
+<!-- share box -->
+<script id="learnlist-sharebox" type="text/x-handlebars-template"> 
+Share box
+    <div class="zero-clipboard">
+    <span class="btn-clipboard">Copy</span>
+      <div class="highlight"><strong>Description:</strong></div>
+</script>
 
-<script id="lessonsummary-template" type="text/x-handlebars-template"> 
-  <div class="row">
-    <div class="summaryThumb"><img src="{{thumbnail_url}}"></div>
-    <div class="summaryInfo">
-      <div class="summaryTitle"><strong>{{title}}</strong></div> 
-      <div class="summaryDescription">{{description}}</div>
-      <div class="summaryLink"><a href="{{provider_url}}" target="_blank">
-       {{provider_name}}</a> </div>
-     </div>
-     <div class="clear"></div>
-   </div>
+<!-- lesson info and nav -->
+
+<script id="lessoninfo-template" type="text/x-handlebars-template">   
+
+ <div class="summaryTitle"><strong>{{title}}</strong></div> 
+ <div class="summaryThumb"></div>
+ <div class="summaryDescription">{{description}}</div>
+ <div class="summaryLink"><a href="{{provider_url}}" target="_blank">
+   {{provider_name}}</a> </div>
+
+   <button type="submit" id="delete-lesson-button" class="btn btn-danger pull-right">Delete</button>
+   <button type="submit" id="keep-lesson-button" class="btn btn-success pull-right">Keep</button>
+
  </script>
 
 
- <!-- lesson info and nav -->
-
- <script id="lessoninfo-template" type="text/x-handlebars-template">   
-
-   <div class="summaryTitle"><strong>{{title}}</strong></div> 
-   <div class="summaryThumb"></div>
-   <div class="summaryDescription">{{description}}</div>
-   <div class="summaryLink"><a href="{{provider_url}}" target="_blank">
-     {{provider_name}}</a> </div>
-
-     <button type="submit" id="delete-lesson-button" class="btn btn-danger pull-right">Delete</button>
-     <button type="submit" id="keep-lesson-button" class="btn btn-success pull-right">Keep</button>
-
-   </script>
-   
-
-   <!-- main page original content -->
-   <div class="container-fluid">
-    <div id="new-learnlist-input">
-      <div class="row text-center">
-        <%=  image_tag "guru.png" %>
-      </div>
-      <h2>Share your curated learning recommendations with the world!</h2>
-      <div class="input-group">
-        <input type="text" class="form-control input-lg" id="new-learnlist-name" placeholder="Enter the name of a new LearnList&#153;">
-        <span class="input-group-btn">
-          <button class="btn btn-primary btn-lg" type="button" id="new-learnlist-button">Curate!
-          </button>
-        </span>
-      </div>
+ <!-- main page original content -->
+ <div class="container-fluid">
+  <div id="new-learnlist-input">
+    <div class="row text-center">
+      <%=  image_tag "guru.png" %>
     </div>
-    <div id="learnlist-content"></div>
+    <h2>Share your curated learning recommendations with the world!</h2>
+    <div class="input-group">
+      <input type="text" class="form-control input-lg" id="new-learnlist-name" placeholder="Enter the name of a new LearnList&#153;">
+      <span class="input-group-btn">
+        <button class="btn btn-primary btn-lg" type="button" id="new-learnlist-button">Curate!
+        </button>
+      </span>
+    </div>
   </div>
+  <div id="learnlist-content"></div>
+</div>
 
 
