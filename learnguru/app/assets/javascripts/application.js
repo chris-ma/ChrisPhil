@@ -15,10 +15,17 @@
 //= require turbolinks
 //= require bootstrap
 //= require cocoon
+//= require zeroclipboard
 //= require_tree .
 
 
+
 $(function () {
+
+  $(document).ready(function() {
+    var clip = new ZeroClipboard($("#d_clip_button"))
+  });
+
 
 
   var createNewLearnList = function () {
