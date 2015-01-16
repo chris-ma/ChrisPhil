@@ -5,7 +5,8 @@
       <%= f.text_field :content, class: "form-control" %>
       <%= f.hidden_field :_destroy %>
       <%= link_to "remove", '#', class: "remove_fields" %>
-
+      <%= f.label :correct, "This is the correct answer" %>
+      <%= f.check_box :content %>
     </fieldset>
   </div>
 </div>

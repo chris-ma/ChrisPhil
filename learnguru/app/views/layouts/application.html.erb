@@ -9,26 +9,30 @@
   <body>
 
   <!-- Navigation -->
- <div class="container  col-xs-12 col-md-12 col-lg-12">
-  <div class="form-custom"> 
+<div class="container">
+<nav class="navbar " role="navigation">
+  <div class="container">
     <nav class="navbar " role="navigation">
       <div class="container">
+
         <div class="navbar-header ">
           <%= link_to "Learn Guru",root_path, class: "navbar-brand" %>
         </div>
+
         <div class="collapse navbar-collapse">
           <div id="log_in_area" class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
             <!-- Gravatar -->
               <%= image_tag current_user.gravatar_url, class: "img-circle gravatar" %>          
               <span class="gravatar-responsive" style="margin-right: 15px">
-                Welcome <strong><%= current_user.username %></strong><%= image_tag current_user.profile_image %>
+                Welcome <strong><%= current_user.username %></strong>
               </span>  
             <!-- /Gravatar -->
             <span>
               <%= link_to edit_user_registration_path, class: "btn btn-info" do %>
               <span class="glyphicon glyphicon-edit"></span> Edit profile
-              <% end %>  
+              <% end %> 
+
               <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-default" %>
               <% else %>
               <%= link_to "Sign up", new_user_registration_path, class: "btn btn-info" %> 
@@ -36,16 +40,21 @@
               <span class="glyphicon glyphicon-flash"></span> Login
               <% end %>  
             </span>
+
             <% end %>
           </div> 
+
           <ul class="nav navbar-nav navbar-left">
             <li><%= link_to 'Access Learnlists', learnlists_path  %></li>
             <li><%= link_to 'Create Learnlists', new_learnlist_path  %></li>
           </ul>
         </div>
+
       </div>
     </nav>
-  </div>
+  
+</div>
+</nav>
 </div>
     <!-- /Navigation -->
 

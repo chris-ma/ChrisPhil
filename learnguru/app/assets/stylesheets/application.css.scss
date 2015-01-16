@@ -19,7 +19,8 @@
 
 * {
 box-sizing: border-box;
-
+background-color: #36465D;
+color: white;
 } 
 
 
@@ -166,7 +167,7 @@ border-radius: 5px;
 
 .navbar-brand {
   float: left;
-  padding: 0 15px;
+  padding: 13px 15px;
   font-size: 18px;
   line-height: 25px;
   height: 50px;
@@ -236,5 +237,5 @@ footer {
 
 .container{
   width: 100vw;
-
+  background-color: #36465D;
 }
