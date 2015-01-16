@@ -84,6 +84,14 @@
 
 Rails.application.routes.draw do
 
+  get 'pages/home'
+
+  get 'pages/about'
+
+  get 'pages/contact'
+
+  get 'pages/test'
+
   get '/auth/:provider/callback', to: 'sessions#create'
  
   get 'lesson_learnlist/index'

@@ -42,7 +42,9 @@ class Lesson < ActiveRecord::Base
     self.description = embed['description']
     self.title = embed['title']
     self.html = embed['html']
-    
+    if self.html.nil? 
+      return false
+    end
     self.thumbnail_url = embed['thumbnail_url']
     self.author_name = embed['author_name']
     self.thumbnail_width = embed['embed_width']
