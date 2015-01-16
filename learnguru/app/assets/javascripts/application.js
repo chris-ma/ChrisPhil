@@ -62,8 +62,9 @@ $(function () {
   $("body").on("click", "#find-lesson-button", function () { 
     var lessonurl = $("#new-provider").val();
     var learnlistID = $("#learnlist-content").data("id");
-    console.log(learnlistID);
-    console.log(lessonurl);
+    // console.log(learnlistID);
+    // console.log("IS THIS CALLED");
+    // console.log(lessonurl);
     $.ajax({
       method: "POST",
       url: "/lessons",
@@ -74,18 +75,25 @@ $(function () {
           learnlist_ids: [learnlistID]
         }
       },
+      error: function (data) {
+        
+        $("#new-provider").val("");
+        $("#new-provider").attr("placeholder", "The link was invalid, please try again");
+        alert("This is not a valid link, please try again");
+      },
       success: function (data) {
-        newlessondata = {
-          title: data.title,
-          description: data.description,
-          thumbnail_url: data.thumbnail_url,
-          provider_url: data.provider_url
-        }
-        if (data.provider_name === 'undefined') {
-          console.log("undef");
+        if (data.html){
+          newlessondata = {
+            title: data.title,
+            description: data.description,
+            thumbnail_url: data.thumbnail_url,
+            provider_url: data.provider_url
+          }
+          if (data.provider_name === 'undefined') {
+          // console.log("undef");
           newlessondata.provider_name = data.provider_url}
           else {newlessondata.provider_name = data.provider_url}
-            console.log(newlessondata);
+            // console.log(newlessondata);
           var lessontemplate = Handlebars.compile($("#lessoninfo-template" ).html());  
 
           $("#lesson-container-new").data("id",data.id).attr("id","lesson-container-last");
@@ -94,7 +102,9 @@ $(function () {
           $("#mediaInfo-last").html(lessontemplate(newlessondata));
           $(".lessonControl").css("display","block");
         }
-      })
+        else {alert("This link is not valid, please try again");}
+      }
+    })
 });
 
 
@@ -112,66 +122,66 @@ $("body").on("click", "#keep-lesson-button", function () {
 });
 
 $("body").on("click", "#delete-lesson-button", function () { 
-     console.log('delete');
-     var lessoncontainertemplate = $("#lessoncontainer-template").html();
-     console.log(lessoncontainertemplate);
-     var lessonID =  $("#lesson-container-last").data("id");
+ console.log('delete');
+ var lessoncontainertemplate = $("#lessoncontainer-template").html();
+ console.log(lessoncontainertemplate);
+ var lessonID =  $("#lesson-container-last").data("id");
  $.ajax({
-    method: "POST",
-    url: "/lessons/" + lessonID,
-    dataType: "json",
-      data: {
-        _method: "DELETE"
-      },
+  method: "POST",
+  url: "/lessons/" + lessonID,
+  dataType: "json",
+  data: {
+    _method: "DELETE"
+  },
+  success: function (data) {
+    $("#lesson-container-last").html(lessoncontainertemplate);
+    $("#lesson-container-last").attr("id","lesson-container-new");
+  }
+})
+});
+
+$("body").on("click", "#finished-learnlist-button", function () { 
+ console.log('finished');
+ var learnlistID = $("#learnlist-content").data("id");
+ $.ajax({
+  method: "PUT",
+  url: "/learnlists/" + learnlistID,
+  dataType: "json",
+  data: {
+    _method: "PATCH",
+    learnlist: {
+      status: 'complete'}
+    },
     success: function (data) {
-      $("#lesson-container-last").html(lessoncontainertemplate);
-      $("#lesson-container-last").attr("id","lesson-container-new");
+      console.log('updated');
+      var learnlistsharetemplate = $("#learnlist-add-description").html();
+      $("#lesson-container-new").html(learnlistsharetemplate);
+      $("#lesson-container-new").attr("id","learnlist-share");
     }
   })
 });
 
-$("body").on("click", "#finished-learnlist-button", function () { 
-     console.log('finished');
-     var learnlistID = $("#learnlist-content").data("id");
- $.ajax({
-      method: "PUT",
-      url: "/learnlists/" + learnlistID,
-      dataType: "json",
-      data: {
-        _method: "PATCH",
-        learnlist: {
-          status: 'complete'}
-        },
-        success: function (data) {
-          console.log('updated');
-         var learnlistsharetemplate = $("#learnlist-add-description").html();
-         $("#lesson-container-new").html(learnlistsharetemplate);
-         $("#lesson-container-new").attr("id","learnlist-share");
-       }
-     })
-});
-
 $("body").on("click", "#share-learnlist-button", function () { 
-     console.log('shared');
-     var learnlistID = $("#learnlist-content").data("id");
-     var learnlistDescription = $("#learnlist-description").val();
+ console.log('shared');
+ var learnlistID = $("#learnlist-content").data("id");
+ var learnlistDescription = $("#learnlist-description").val();
  $.ajax({
-      method: "PUT",
-      url: "/learnlists/" + learnlistID,
-      dataType: "json",
-      data: {
-        _method: "PATCH",
-        learnlist: {
-          description: learnlistDescription}
-        },
-        success: function (data) {
-          console.log('ready to share');
-          var shareboxtemplate = Handlebars.compile($("#learnlist-sharebox").html());
-          var shareboxdata = {Description: learnlistDescription};
-          $("#learnlist-share").html(shareboxtemplate(newlessondata));
+  method: "PUT",
+  url: "/learnlists/" + learnlistID,
+  dataType: "json",
+  data: {
+    _method: "PATCH",
+    learnlist: {
+      description: learnlistDescription}
+    },
+    success: function (data) {
+      console.log('ready to share');
+      var shareboxtemplate = Handlebars.compile($("#learnlist-sharebox").html());
+      var shareboxdata = {Description: learnlistDescription};
+      $("#learnlist-share").html(shareboxtemplate(newlessondata));
 
-       }
-     })
+    }
+  })
 });
 
 
