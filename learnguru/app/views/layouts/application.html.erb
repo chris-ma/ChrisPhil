@@ -51,16 +51,7 @@
 
         <%= yield %>
   
-   <!-- Alert -->
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <%= value %>
-        </div>
-      <% end %>
-    </div>
-    <!-- /Alert -->
+
 
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
     <!-- Footer -->
